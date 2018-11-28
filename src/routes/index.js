@@ -1,9 +1,7 @@
+const ping = require('./ping');
+const namespace = require('./namespace');
+
 module.exports = [
-  {
-    path: '/ping',
-    method: 'GET',
-    handler: (request, response) => {
-      response('pong').code(200);
-    },
-  },
+  ping,
+  namespace,
 ];
