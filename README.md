@@ -1,5 +1,3 @@
-# HappilyHapi
+# Yeah.. I got you
 
-A backend boilerplate for anyone too lazy to create one theirselves.
-
-Peace :D
+Chat app for depressed people
