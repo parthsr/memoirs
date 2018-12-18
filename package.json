@@ -13,7 +13,7 @@
     "eslint-plugin-import": "^2.11.0",
     "jest": "^22.4.3"
   },
-  "name": "gameBackEnd",
+  "name": "memoirBackEnd",
   "version": "1.0.0",
   "main": "src/server.js",
   "directories": {
@@ -22,6 +22,10 @@
   "scripts": {
     "test": "jest --coverage",
     "start": "nodemon src/server.js"
+  },
+  "jest":{
+    "verbose": true,
+    "testURL": "http://localhost/"
   },
   "author": "Parth Srivastava",
   "license": "ISC",
