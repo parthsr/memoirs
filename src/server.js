@@ -11,8 +11,8 @@ const { listener } = server;
 
 let numberOfConnections = 0;
 
-const nps = io(listener).of('/game');
-nps.on('connection', (socket) => {
+const nameSpace = io(listener).of('/chat');
+nameSpace.on('connection', (socket) => {
   numberOfConnections += 1;
   console.log('number of clients', numberOfConnections);
   socket.emit('sendConnectionAccepted', 'new connection');
@@ -21,7 +21,7 @@ nps.on('connection', (socket) => {
     socket.emit('confirmationRoom', `joined the room${room}`);
     socket.on('sendMessageInRoom', (message) => {
       console.log('sending');
-      nps.in(room).emit('forwardMessageToRoom', message);
+      nameSpace.in(room).emit('forwardMessageToRoom', message);
     });
   });
 });
