@@ -5,7 +5,7 @@ const io = require('socket.io');
 const server = new hapi.Server();
 server.connection({
   host: '0.0.0.0',
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 8080,
 });
 const { listener } = server;
 
@@ -22,6 +22,14 @@ nameSpace.on('connection', (socket) => {
     socket.on('sendMessageInRoom', (message) => {
       console.log('sending');
       nameSpace.in(room).emit('forwardMessageToRoom', message);
+    });
+    socket.on('sendSongInRoom', (message) => {
+      console.log('sending song');
+      nameSpace.in(room).emit('forwardSongToRoom', message);
+    });
+    socket.on('sendBackgroundInRoom', (message) => {
+      console.log('sending song');
+      nameSpace.in(room).emit('forwardBackgroundToRoom', message);
     });
   });
 });
